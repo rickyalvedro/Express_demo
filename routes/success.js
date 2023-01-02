@@ -4,10 +4,10 @@ const express = require("express");
 
 const rootDir = require("../util/path");
 
-const productsController = require("../controllers/products");
-
 const router = express.Router();
 
-router.get("/", productsController.getProducts);
+const successController = require("../controllers/success.js");
+
+router.use("/success", successController.getSuccessPage);
 
 module.exports = router;

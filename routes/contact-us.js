@@ -6,14 +6,13 @@ const rootDir = require("../util/path");
 
 const router = express.Router();
 
-router.get("/contact", (req, res, next) => {
-  // console.log("In middleware!");
-  res.sendFile(path.join(rootDir, "views", "contactus.html"));
-});
+const contactController = require('../controllers/contact');
 
-router.post("/success", (req, res, next) => {
-  // console.log(req.body);
-  res.sendFile(path.join(rootDir, "views", "success.html"));
-});
+router.get("/contactus", contactController.getContact);
+
+router.post("/contactus", contactController.postContact);
+// (req, res, next) => {
+
+//   res.sendFile(path.join(rootDir, "views", "success.html"));
 
 module.exports = router;
